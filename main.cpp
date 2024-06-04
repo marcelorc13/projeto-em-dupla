@@ -1,10 +1,16 @@
 #include <iostream>
 using namespace std;
 
-void cadastrarUsuario()
-{
+class UserType {
+public:
+    string exercicio;
+    int nDeSeries;
+    int nDeReps;
+};
+
+void cadastrarUsuario() {
 }
 
-int main()
-{
+int main() {
+
 }
