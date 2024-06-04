@@ -2,26 +2,32 @@
 #include <vector>
 using namespace std;
 
-class exercicio {
+class Exercicios {
 public:
     string nome;
     int nDeSeries;
     int nDeReps;
 };
+class Usuarios {
+public:
+    string nome;
+    string senha;
+};
 
-vector<exercicio> lista;
+Exercicios exercio;
+vector<Exercicios> lista;
 
-exercicio objeto;
+Usuarios usuario;
 
 void cadastrarExercicio() {
     cout << "Insira o nome do exercicio: ";
-    cin >> objeto.nome;
+    cin >> exercio.nome;
     cout << "Insira o numero de series do exercicio: ";
-    cin >> objeto.nDeSeries;
+    cin >> exercio.nDeSeries;
     cout << "Insira o numero de repeticoes do exercicio: ";
-    cin >> objeto.nDeReps;
+    cin >> exercio.nDeReps;
 
-    lista.push_back(objeto);
+    lista.push_back(exercio);
 }
 
 void mostrarExercicio() {
@@ -32,8 +38,15 @@ void mostrarExercicio() {
         cout << "Numero de repeticoes: " << lista[i].nDeReps << endl;
     }
 }
-
+void criarusuario(){
+    cout << "Digite seu nome: ";
+    cin >> usuario.nome;
+    cout << "Digite sua senha: ";
+    cin >> usuario.senha;
+    cout << "Seja bem vindo " << usuario.nome << endl;
+}
 int main() {
+    criarusuario();
     cadastrarExercicio();
     mostrarExercicio();
 }
