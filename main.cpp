@@ -2,13 +2,6 @@
 #include <vector>
 using namespace std;
 
-class Exercicios
-{
-public:
-    string nome;
-    int nDeSeries;
-    int nDeReps;
-};
 class Usuarios
 {
 public:
@@ -16,10 +9,51 @@ public:
     string senha;
 };
 
+class Exercicios
+{
+public:
+    string nome;
+    int nDeSeries;
+    int nDeReps;
+};
+
+Usuarios usuario;
+
 Exercicios exercio;
 vector<Exercicios> lista;
 
-Usuarios usuario;
+void cadastrarUsuario()
+{
+    cout << "Digite seu nome: ";
+    cin >> usuario.nome;
+    cout << "Digite sua senha: ";
+    cin >> usuario.senha;
+    cout << "Usuario cadastrado com sucesso" << endl;
+}
+
+void verificarUsuario()
+{
+    string user, pass;
+
+    cout << endl
+         << "Fazer login do usuario: " << endl
+         << "Insira o nome do usuario cadastrado: ";
+    cin >> user;
+    cout << "Insira a senha cadastrada: ";
+    cin >> pass;
+
+    if (user == usuario.nome && pass == usuario.senha)
+    {
+        cout << endl
+             << "Seja bem vindo " << usuario.nome << endl;
+    }
+    else
+    {
+        cout << endl
+             << "Usuario ou senha incorreto, tente novamente" << endl;
+        verificarUsuario();
+    }
+}
 
 void cadastrarExercicio()
 {
@@ -45,36 +79,6 @@ void mostrarExercicio()
     }
 }
 
-void cadastrarUsuario()
-{
-    cout << "Digite seu nome: ";
-    cin >> usuario.nome;
-    cout << "Digite sua senha: ";
-    cin >> usuario.senha;
-    cout << "Usuario cadastrado com sucesso" << endl;
-}
-
-void verificarUsuario()
-{
-    string user, pass;
-
-    cout << endl << "Fazer login do usuario: " << endl<< "Insira o nome do usuario cadastrado: ";
-    cin >> user;
-    cout << "Insira a senha cadastrada: ";
-    cin >> pass;
-
-    if (user == usuario.nome && pass == usuario.senha)
-    {
-        cout << endl
-             << "Seja bem vindo " << usuario.nome;
-    }
-    else
-    {
-        cout << endl << "Usuario ou senha incorreto, tente novamente" << endl;
-        verificarUsuario();
-    }
-}
-
 int main()
 {
     cadastrarUsuario();
@@ -93,6 +97,17 @@ int main()
         else
         {
             mostrarExercicio();
+            cout << endl
+                 << "Deseja voltar ao sistema? Insira 's' para Continuar ou qualquer botao para Sair \n";
+            cin >> continuar;
+            if (continuar == "s")
+            {
+                cadastrarExercicio();
+            }
+            else
+            {
+                cout << "Voce saiu do sistema com sucesso";
+            }
         }
     }
 }
