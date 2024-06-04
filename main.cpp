@@ -26,7 +26,10 @@ void cadastrarExercicio() {
 
 void mostrarExercicio() {
     for(int i = 0; i < lista.size(); i++) {
-        cout << lista.size();
+        cout << endl << "Exercicio de numero " << i+1 << endl;
+        cout << "Nome do exercicio: " << lista[i].nome << endl;
+        cout << "Numero de series: " << lista[i].nDeSeries << endl;
+        cout << "Numero de repeticoes: " << lista[i].nDeReps << endl;
     }
 }
 
