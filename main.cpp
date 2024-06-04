@@ -2,13 +2,15 @@
 #include <vector>
 using namespace std;
 
-class Exercicios {
+class Exercicios
+{
 public:
     string nome;
     int nDeSeries;
     int nDeReps;
 };
-class Usuarios {
+class Usuarios
+{
 public:
     string nome;
     string senha;
@@ -19,7 +21,8 @@ vector<Exercicios> lista;
 
 Usuarios usuario;
 
-void cadastrarExercicio() {
+void cadastrarExercicio()
+{
     cout << "Insira o nome do exercicio: ";
     cin >> exercio.nome;
     cout << "Insira o numero de series do exercicio: ";
@@ -30,23 +33,40 @@ void cadastrarExercicio() {
     lista.push_back(exercio);
 }
 
-void mostrarExercicio() {
-    for(int i = 0; i < lista.size(); i++) {
-        cout << endl << "Exercicio de numero " << i+1 << endl;
+void mostrarExercicio()
+{
+    for (int i = 0; i < lista.size(); i++)
+    {
+        cout << endl << "Exercicio de numero " << i + 1 << endl;
         cout << "Nome do exercicio: " << lista[i].nome << endl;
         cout << "Numero de series: " << lista[i].nDeSeries << endl;
         cout << "Numero de repeticoes: " << lista[i].nDeReps << endl;
     }
 }
-void criarusuario(){
+
+void criarusuario()
+{
     cout << "Digite seu nome: ";
     cin >> usuario.nome;
     cout << "Digite sua senha: ";
     cin >> usuario.senha;
-    cout << "Seja bem vindo " << usuario.nome << endl;
+    cout << endl << "Seja bem vindo " << usuario.nome << endl;
 }
-int main() {
+
+int main()
+{
+    string continuar;
+    continuar = "s";
     criarusuario();
     cadastrarExercicio();
-    mostrarExercicio();
+    while (continuar == "s"){
+        cout << endl << "Deseja adicionar outro exercicio? Insira 's' para Continuar ou qualquer coisa para Sair ";
+        cin >> continuar;
+        if (continuar == "s"){
+            cadastrarExercicio();
+        }
+        else{
+            mostrarExercicio();
+        }
+    }
 }
