@@ -37,35 +37,61 @@ void mostrarExercicio()
 {
     for (int i = 0; i < lista.size(); i++)
     {
-        cout << endl << "Exercicio de numero " << i + 1 << endl;
+        cout << endl
+             << "Exercicio de numero " << i + 1 << endl;
         cout << "Nome do exercicio: " << lista[i].nome << endl;
         cout << "Numero de series: " << lista[i].nDeSeries << endl;
         cout << "Numero de repeticoes: " << lista[i].nDeReps << endl;
     }
 }
 
-void criarusuario()
+void cadastrarUsuario()
 {
     cout << "Digite seu nome: ";
     cin >> usuario.nome;
     cout << "Digite sua senha: ";
     cin >> usuario.senha;
-    cout << endl << "Seja bem vindo " << usuario.nome << endl;
+    cout << "Usuario cadastrado com sucesso" << endl;
+}
+
+void verificarUsuario()
+{
+    string user, pass;
+
+    cout << endl << "Fazer login do usuario: " << endl<< "Insira o nome do usuario cadastrado: ";
+    cin >> user;
+    cout << "Insira a senha cadastrada: ";
+    cin >> pass;
+
+    if (user == usuario.nome && pass == usuario.senha)
+    {
+        cout << endl
+             << "Seja bem vindo " << usuario.nome;
+    }
+    else
+    {
+        cout << endl << "Usuario ou senha incorreto, tente novamente" << endl;
+        verificarUsuario();
+    }
 }
 
 int main()
 {
-    string continuar;
-    continuar = "s";
-    criarusuario();
+    cadastrarUsuario();
+    verificarUsuario();
+
+    string continuar = "s";
     cadastrarExercicio();
-    while (continuar == "s"){
-        cout << endl << "Deseja adicionar outro exercicio? Insira 's' para Continuar ou qualquer coisa para Sair ";
+    while (continuar == "s")
+    {
+        cout << "\n Deseja adicionar outro exercicio? Insira 's' para Continuar ou qualquer botao para Sair \n ";
         cin >> continuar;
-        if (continuar == "s"){
+        if (continuar == "s")
+        {
             cadastrarExercicio();
         }
-        else{
+        else
+        {
             mostrarExercicio();
         }
     }
